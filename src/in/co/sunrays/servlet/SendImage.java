@@ -10,21 +10,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * TBD
+ * 
+ * @version 1.0
+ * @since 01 Feb 2015
+ * @author SUNRAYS Developer
+ * @Copyright (c) sunRays Technologies. All rights reserved.
+ * @URL www.sunrays.co.in
+ */
+
 public class SendImage extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		response.setContentType("image/jpg");
-		
-		FileInputStream in = 
-			new FileInputStream("C:/sunrays/images/1.jpg");
-		
+
+		FileInputStream in = new FileInputStream("C:/sunrays/images/1.jpg");
+
 		ServletOutputStream out = response.getOutputStream();
 
 		byte[] buffer = new byte[256];
 		int i = in.read(buffer);
-		while(i>0){
+		while (i > 0) {
 			out.write(buffer, 0, i);
 			in.read(buffer);
 		}

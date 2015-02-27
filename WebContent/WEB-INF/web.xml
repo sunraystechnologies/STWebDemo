@@ -26,7 +26,7 @@
 	</servlet>
 
 
-	<!--  Reads init params from Servlet Config object -->
+	<!-- Reads init params from Servlet Config object -->
 	<servlet>
 		<servlet-name>ReadInitParams</servlet-name>
 		<servlet-class>in.co.sunrays.servlet.ReadInitParams</servlet-class>
@@ -99,7 +99,7 @@
 		<url-pattern>/servlet/ReadInitParams</url-pattern>
 	</servlet-mapping>
 
-		<!-- Mappes JSP that reads Initial Parameters from config implicit object -->
+	<!-- Mappes JSP that reads Initial Parameters from config implicit object -->
 	<servlet-mapping>
 		<servlet-name>ReadInitParamsJSP</servlet-name>
 		<url-pattern>/jsp/ReadInitParams</url-pattern>
@@ -128,16 +128,24 @@
 		<url-pattern>/StudentMgtCtl</url-pattern>
 	</servlet-mapping>
 
-
-
-	<filter id="filter1">
-		<filter-name>FrontCtl</filter-name>
-		<filter-class>in.co.sunrays.advjava.filter.MyFilter</filter-class>
-
+	<filter>
+		<filter-name>MyFilter</filter-name>
+		<filter-class>in.co.sunrays.filter.MyFilter</filter-class>
 	</filter>
+
+	<filter>
+		<filter-name>FrontCtl</filter-name>
+		<filter-class>in.co.sunrays.filter.FrontCtl</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>MyFilter</filter-name>
+		<servlet-name>HelloWorld</servlet-name>
+	</filter-mapping>
+		
 	<filter-mapping>
 		<filter-name>FrontCtl</filter-name>
-		<servlet-name>HelloWorld</servlet-name>
+		<servlet-name>/servlet/*</servlet-name>
 	</filter-mapping>
 
 	<env-entry>
@@ -154,6 +162,7 @@
 	</error-page>
 
 	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 

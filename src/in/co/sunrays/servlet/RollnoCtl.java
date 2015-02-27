@@ -2,6 +2,16 @@ package in.co.sunrays.servlet;
 
 import in.co.sunrays.advjava.dto.MarksheetDTO;
 
+/**
+ * TBD
+ * 
+ * @version 1.0
+ * @since 01 Feb 2015
+ * @author SUNRAYS Developer
+ * @Copyright (c) sunRays Technologies. All rights reserved.
+ * @URL www.sunrays.co.in
+ */
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -11,11 +21,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class RollnoCtl extends HttpServlet {
-	
-	
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		System.out.println("Inside Servlet");
 
 		String rollNo = request.getParameter("rollNo");
@@ -27,7 +36,7 @@ public class RollnoCtl extends HttpServlet {
 			rd.forward(request, response);
 
 		}
-		
+
 		MarksheetDTO dto = new MarksheetDTO();
 		dto.setRollNo(rollNo);
 		dto.setName("Mahendra Singh Dhoni");
@@ -36,7 +45,7 @@ public class RollnoCtl extends HttpServlet {
 		dto.setPhysics(90);
 
 		System.out.println("Forwarding to Marksheet");
-		
+
 		request.setAttribute("marksheetDto", dto);
 		RequestDispatcher rd = request.getRequestDispatcher("/Marksheet.jsp");
 		rd.forward(request, response);

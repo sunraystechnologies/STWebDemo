@@ -30,7 +30,6 @@ public class ReadInitParams extends HttpServlet {
 		out.println("<HTML><BODY>");
 		out.println(" <H1> Initial Parameters from config(ServletConfig) implicit object : </H1>");
 		out.println(" <B>Org</B> : " + config.getInitParameter("org"));
-
 		out.println("</BODY></HTML>");
 		out.close();
 	}
